@@ -9,21 +9,31 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Scaling;
 import com.badlogic.gdx.utils.viewport.ScalingViewport;
+import com.polymorphic_dissociation.mandala.controller.Controller;
+import com.polymorphic_dissociation.mandala.model.Arm;
+import com.polymorphic_dissociation.mandala.model.Canvas;
+import com.polymorphic_dissociation.mandala.view.MandalaRenderer;
+import com.polymorphic_dissociation.mandala.view.MandalaUI;
 
 public class MandalaMaker extends ApplicationAdapter {
-    private SpriteBatch batch;
-    private Texture img;
-    private OrthographicCamera camera;
+
+    private static final int CANVAS_WIDTH =  2480;
+    private static final int CANVAS_HEIGHT =  3508;
+
+    private Controller controller;
+    private MandalaRenderer renderer;
+    private MandalaUI mUI;
     private ScalingViewport viewport;
 
     @Override
     public void create() {
-        batch = new SpriteBatch();
-        img = new Texture("checkerboard.jpg");
-        int w = Gdx.graphics.getWidth();
-        int h = Gdx.graphics.getHeight();
-        viewport = new ScalingViewport(Scaling.fit, 960, 720);
+        this.viewport = new ScalingViewport(Scaling.fit, 960, 720);
 //        viewport = new ScalingViewport(Scaling.fit, 1920, 1080);
+        this.mUI = new MandalaUI();
+        Arm arm = new Arm();
+        Canvas canvas = new Canvas(CANVAS_WIDTH, CANVAS_HEIGHT);
+        this.controller = new Controller(canvas, arm);
+        this.renderer = new MandalaRenderer(canvas, arm);
 
     }
 
@@ -32,21 +42,18 @@ public class MandalaMaker extends ApplicationAdapter {
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        int w = Gdx.graphics.getWidth();
-        int h = Gdx.graphics.getHeight();
+//        //mandala
+//        batch.draw(img, 0, (720-679) / 2f, 480, 679);
+//        //ui
+//        batch.draw(img, 480, 0, 480, 720);
 
         viewport.apply();
-        batch.setColor(Color.BLUE);
-        batch.begin();
-        batch.draw(img, 0, (720-679) / 2f, 480, 679);
-//        batch.draw(img, 0, 0, 764, 1080);
-        batch.end();
 
-        batch.setColor(Color.GREEN);
-        batch.begin();
-        batch.draw(img, 480, 0, 480, 720);
-//        batch.draw(img, 960, 0, 960, 1080);
-        batch.end();
+        controller.update(Gdx.graphics.getDeltaTime());
+        renderer.render();
+
+        Gdx.app.log(Utils.TAG, "fps: " + Gdx.graphics.getFramesPerSecond());
+
     }
 
     @Override
@@ -57,7 +64,6 @@ public class MandalaMaker extends ApplicationAdapter {
 
     @Override
     public void dispose() {
-        batch.dispose();
-        img.dispose();
+        renderer.dispose();
     }
 }
