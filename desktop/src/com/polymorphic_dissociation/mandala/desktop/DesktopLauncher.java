@@ -9,8 +9,8 @@ import com.polymorphic_dissociation.mandala.MandalaMaker;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
-//		config.setWindowedMode(1728, 972);
-        config.setWindowedMode(960, 720);
+		config.setWindowedMode(1728, 972);
+//        config.setWindowedMode(960, 720);
 //        config.setFullscreenMode(Lwjgl3ApplicationConfiguration.getDisplayMode());
 		new Lwjgl3Application(new MandalaMaker(), config);
 	}

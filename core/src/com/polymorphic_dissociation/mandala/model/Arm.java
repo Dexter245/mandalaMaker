@@ -12,41 +12,51 @@ public class Arm {
 
     private List<Segment> segments;
 
-    public Arm(){
+    public Arm() {
         this(null);
     }
 
-    public Arm(List<Segment> segments){
-        if(segments != null)
+    public Arm(List<Segment> segments) {
+        if (segments != null)
             this.segments = segments;
         else
             this.segments = new ArrayList<>();
     }
 
-    public void rotate(float delta){
-        for(Segment s : segments){
+    public void rotate(float delta) {
+        for (Segment s : segments) {
             s.rotate(delta);
         }
     }
 
-    public void addSegment(float length, float rotSpeed){
+    public void addSegment(float length, float rotSpeed) {
         segments.add(new Segment(length, rotSpeed));
     }
 
-    public void removeSegment(){
-        if(segments.size() >= 1)
-            segments.remove(segments.size()-1);
+    public void removeSegment() {
+        if (segments.size() >= 1)
+            segments.remove(segments.size() - 1);
     }
 
-    public Vector2 getNeedlePos(){
+    public Vector2 getNeedlePos() {
         Vector2 v = new Vector2(CENTER_X, CENTER_Y);
-        for(Segment s : segments){
+        for (Segment s : segments) {
             v.add(s.getVector());
         }
         return v;
     }
 
-    public List<Segment> getSegments(){
+    public int getNumSegments() {
+        return segments.size();
+    }
+
+    public Segment getSegment(int index) {
+        if (index >= segments.size())
+            throw new IllegalArgumentException("index >= size");
+        return segments.get(index);
+    }
+
+    public List<Segment> getSegments() {
         return segments;
     }
 }

@@ -10,7 +10,7 @@ import com.polymorphic_dissociation.mandala.Utils;
 
 public class Canvas {
 
-    private static final int STROKE_WIDTH = 10;
+    private static final int STROKE_WIDTH = 3;
 //    private static final float SCALE = 5.166667f;
     private static final float SCALE = 2.58333f;
 
@@ -23,7 +23,8 @@ public class Canvas {
 //        this.pixmapSmall = new Pixmap(480, 679, Pixmap.Format.RGB888);
         this.pixmapSmall = new Pixmap(960, 1358, Pixmap.Format.RGB888);
         this.pixmapSmall.setFilter(Pixmap.Filter.NearestNeighbour);
-        this.texture = new Texture(this.pixmapSmall);
+//        this.texture = new Texture(this.pixmapSmall);
+        this.texture = new Texture(this.pixmap);
         clear();
     }
 
@@ -45,7 +46,8 @@ public class Canvas {
     public void update(){
 //        pixmapSmall.drawPixmap(pixmap, 0, 0, pixmap.getWidth(), pixmap.getHeight(),
 //                0, 0, 480, 679);
-        texture.draw(pixmapSmall, 0, 0);
+//        texture.draw(pixmapSmall, 0, 0);
+        texture.draw(pixmap, 0, 0);
     }
 
     public void saveToFile(FileHandle file){

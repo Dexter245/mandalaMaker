@@ -20,4 +20,19 @@ public class Segment {
         return v;
     }
 
+    public float getLength(){
+        return v.len();
+    }
+
+    public void setLength(float length){
+        v.nor().scl(length);
+    }
+
+    public float getRotSpeed() {
+        return rotSpeed;
+    }
+
+    public void setRotSpeed(float rotSpeed) {
+        this.rotSpeed = rotSpeed;
+    }
 }
