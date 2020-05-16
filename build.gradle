@@ -63,8 +63,8 @@ project(":html") {
         api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion"
         api "com.badlogicgames.gdx:gdx:$gdxVersion:sources"
         api "com.badlogicgames.gdx:gdx-backend-gwt:$gdxVersion:sources"
-        api "com.kotcrab.vis:vis-ui:1.3.0:sources"
-        api "net.dermetfan.libgdx-utils:libgdx-utils:0.13.4:sources"
+        api "com.kotcrab.vis:vis-ui:1.4.4:sources"
+//        api "net.dermetfan.libgdx-utils:libgdx-utils:0.13.4:sources"
         
     }
 }
@@ -75,7 +75,7 @@ project(":core") {
 
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
-        api "com.kotcrab.vis:vis-ui:1.3.0"
+        api "com.kotcrab.vis:vis-ui:1.4.4"
         api "net.dermetfan.libgdx-utils:libgdx-utils:0.13.4"
         
     }

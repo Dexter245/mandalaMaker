@@ -43,7 +43,7 @@ public class SegmentUI extends VisTable {
 
         labelLength = new VisLabel("Length", color);
         add(labelLength).width(120);
-        sliderLength = new VisSlider(10f, 700f, 5f, false);
+        sliderLength = new VisSlider(50f, 700f, 20f, false);
         sliderLength.setRound(true);
 //        sliderLength.setFillParent(true);
         add(sliderLength).width(700);
@@ -52,7 +52,7 @@ public class SegmentUI extends VisTable {
 
         labelRotSpeed = new VisLabel("RotSpeed", color);
         add(labelRotSpeed).width(120);
-        sliderRotSpeed = new VisSlider(-350f, 350f, 5f, false);
+        sliderRotSpeed = new VisSlider(-350f, 350f, 20f, false);
         add(sliderRotSpeed).width(700);
 
         center();

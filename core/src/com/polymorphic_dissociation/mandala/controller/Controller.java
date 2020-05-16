@@ -23,8 +23,8 @@ public class Controller {
 
         //todo: debug only, remove later
         this.arm.addSegment(200, 40f);
-        this.arm.addSegment(100, 24f);
-        this.arm.addSegment(50, -100f);
+        this.arm.addSegment(100, -20f);
+//        this.arm.addSegment(50, -100f);
 
     }
 

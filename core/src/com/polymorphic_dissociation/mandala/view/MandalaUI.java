@@ -93,7 +93,7 @@ public class MandalaUI {
         VisTable table2 = new VisTable();
         root.add(table2).row();
 
-        labelSegments = new VisLabel("Segments: 3");
+        labelSegments = new VisLabel("Segments: 2");
         table2.add(labelSegments).width(100f);
         sliderSegments = new VisSlider(1, 10, 1, false);
         sliderSegments.setValue(model.getNumSegments());

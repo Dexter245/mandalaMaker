@@ -51,7 +51,7 @@ public class Canvas {
     }
 
     public void saveToFile(FileHandle file){
-        PixmapIO.writePNG(file, pixmap);
+//        PixmapIO.writePNG(file, pixmap);
     }
 
     public Texture getTexture(){
